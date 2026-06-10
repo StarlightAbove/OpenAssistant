@@ -4,8 +4,8 @@ import requests
 
 app = Flask(__name__)
 
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-GEMINI_API_URL = os.getenv("GEMINI_API_URL", "https://api.google.com/gemini")
+CLAUDE_API_KEY = os.getenv("CLAUDE_API_KEY")
+CLAUDE_API_URL = os.getenv("CLAUDE_API_URL", "https://api.google.com/gemini")
 
 APPROVED_PROVIDERS = [
     "European CDC",
@@ -44,16 +44,16 @@ def build_gemini_payload(data):
     }
 
 def interact_with_gemini(data):
-    if not GEMINI_API_KEY:
+    if not CLAUDE_API_KEY:
         return {"status": "error", "message": "Missing GEMINI_API_KEY environment variable."}
 
     payload = build_gemini_payload(data)
     headers = {
-        "Authorization": f"Bearer {GEMINI_API_KEY}",
+        "Authorization": f"Bearer {CLAUDE_API_KEY}",
         "Content-Type": "application/json",
     }
 
-    response = requests.post(GEMINI_API_URL, headers=headers, json=payload, timeout=15)
+    response = requests.post(CLAUDE_API_URL, headers=headers, json=payload, timeout=15)
 
     if response.ok:
         return response.json()

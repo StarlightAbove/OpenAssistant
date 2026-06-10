@@ -1,0 +1,16 @@
+name,amount,date,category,merchant
+Whole Foods Market,65.32,2024-01-15,groceries,Whole Foods
+Shell Gas Station,45.50,2024-01-15,transportation,Shell
+Netflix Subscription,15.99,2024-01-16,entertainment,Netflix
+Starbucks Coffee,5.75,2024-01-16,food,Starbucks
+Amazon Purchase,89.99,2024-01-17,shopping,Amazon
+Chipotle Restaurant,12.45,2024-01-17,food,Chipotle
+CVS Pharmacy,34.21,2024-01-18,healthcare,CVS
+Spotify Premium,11.99,2024-01-18,entertainment,Spotify
+Target Shopping,125.60,2024-01-19,shopping,Target
+United Airlines,287.50,2024-01-20,transportation,United Airlines
+Trader Joe's,78.43,2024-01-21,groceries,Trader Joe's
+Gym Membership,50.00,2024-01-22,fitness,Planet Fitness
+Uber Ride,22.35,2024-01-22,transportation,Uber
+Restaurant Dinner,89.75,2024-01-23,food,Olive Garden
+Apple iTunes,9.99,2024-01-24,entertainment,Apple
