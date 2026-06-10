@@ -1,10 +1,10 @@
 import csv
 import os
 from typing import Optional
-from plaid.api import plaid_api
-from plaid.model.transactions_get_request import TransactionsGetRequest
-from plaid.configuration import Configuration
-from plaid.api_client import ApiClient
+from plaid.api import plaid_api # type: ignore
+from plaid.model.transactions_get_request import TransactionsGetRequest # type: ignore
+from plaid.configuration import Configuration # type: ignore
+from plaid.api_client import ApiClient # type: ignore
 
 import google.generativeai as genai
 
