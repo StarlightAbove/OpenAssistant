@@ -1,5 +1,5 @@
 import requests
-from connectors.base import BaseConnector
+from services.base import BaseConnector
 from db.queries import save_snapshot, get_yesterday_snapshot
 
 
@@ -19,6 +19,7 @@ class GitHubConnector(BaseConnector):
             "review_requested": self._get_review_requests(),
             "open_issues_assigned": self._get_assigned_issues(),
             "unread_notifications": self._get_notifications(),
+            "recent_commits": self._get_recent_commits(),  
         }
 
         yesterday_data = get_yesterday_snapshot("github")
@@ -72,3 +73,38 @@ class GitHubConnector(BaseConnector):
             {"title": n["subject"]["title"], "repo": n["repository"]["full_name"], "reason": n["reason"]}
             for n in resp.json()
         ]
+    
+    def _get_recent_commits(self, days: int = 1, max_repos: int = 5) -> list:
+        repos_resp = requests.get(
+            f"https://api.github.com/users/{self.username}/repos",
+            headers=self.headers,
+            params={"sort": "pushed", "direction": "desc", "per_page": max_repos},
+        )
+        repos_resp.raise_for_status()
+
+        result = []
+        for repo in repos_resp.json():
+            commits_resp = requests.get(
+                f"https://api.github.com/repos/{self.username}/{repo['name']}/commits",
+                headers=self.headers,
+                params={"author": self.username, "since": since, "per_page": 10},
+            )
+        commits_resp.raise_for_status()
+        commits = commits_resp.json()
+
+        if commits:
+            result.append({
+                "repo": repo["name"],
+                "description": repo.get("description"),
+                "commits": [
+                    {
+                        "message": c["commit"]["message"],
+                        "sha": c["sha"][:7],
+                        "date": c["commit"]["author"]["date"],
+                        "url": c["html_url"],
+                    }
+                    for c in commits
+                ],
+            })
+
+        return result
