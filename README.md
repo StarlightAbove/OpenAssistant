@@ -36,7 +36,7 @@ It then auto-emails a draft every morning with everything that you need to look 
 ### Prerequisites
 
 - Python 3.8+
-- Google Gemini API key
+- Claude API key
 
 ### Installation
 
