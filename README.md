@@ -12,13 +12,11 @@ This is mostly a fun project because I am just in a lot of positions and was str
 What this does is simple: it takes everything and creates a morning briefing out of it. First of all, it is designed as a cron job, meant to run on a Raspberry Pi or some other small server. 
 It retrieves data from the following services:
 - **Slack**
-- **Brightspace**
 - **Outlook**
 - **Gmail**
 - **Google Sheets**
 - **Google Calendar**
 - **Outlook Calendar**
-- **Facebook Messenger**
 - **Todoist**
 - **Github**
 - **GeoIP**
