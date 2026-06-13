@@ -6,7 +6,7 @@ An open-source AI administrative assistant that helps organize your daily work t
 ## Features
 
 - **Morning Briefings**: Get a personalized summary of your day ahead
-- **AI-Powered Organization**: Leverages Google Gemini for intelligent task analysis
+- **AI-Powered Organization**: Leverages Anthropic Claude Sonnet 4.6 for intelligent task analysis
 
 This is mostly a fun project because I am just in a lot of positions and was struggling to keep up with my organization tools.
 What this does is simple: it takes everything and creates a morning briefing out of it. First of all, it is designed as a cron job, meant to run on a Raspberry Pi or some other small server. 
